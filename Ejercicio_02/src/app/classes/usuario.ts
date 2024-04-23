@@ -1,7 +1,7 @@
 export class Usuario {
 
-    private nombre: string;
-    private clave: string;
+    nombre: string;
+    clave: string;
 
     constructor(nombre: string, clave: string) {
         this.nombre = nombre;

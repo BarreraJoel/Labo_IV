@@ -1,24 +1,26 @@
 import { Routes } from '@angular/router';
-import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
-import { LoginComponent } from './components/login/login.component';
-import { ErrorComponent } from './components/error/error.component';
 
+// Ejercicio 3
 export const routes: Routes = [
     {
         path: 'bienvenida',
-        component: BienvenidaComponent
+        loadComponent: () => import('./components/bienvenida/bienvenida.component').then(m => m.BienvenidaComponent)
     },
     {
         path: 'login',
-        component: LoginComponent
+        loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent)
     },
     {
         path: 'error',
-        component: ErrorComponent
+        loadComponent: () => import('./components/error/error.component').then(m => m.ErrorComponent)
     },
     {
         path: '',
         pathMatch: 'full',
         redirectTo: 'login'
+    },
+    {
+        path: '**',
+        loadComponent: () => import('./components/error/error.component').then(m => m.ErrorComponent)
     }
 ];
