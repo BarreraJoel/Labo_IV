@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-// Ejercicio 3
 export const routes: Routes = [
     {
         path: 'bienvenida',
